@@ -1,0 +1,29 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class GameOverScreen : MonoBehaviour
+{
+    public GameObject gameOverPanel;  // Assign the Game Over UI panel in Inspector
+
+    void Start()
+    {
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(false);  // Hide the panel at start
+    }
+
+    public void ShowGameOver()
+    {
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(true);   // Show Game Over panel
+    }
+
+    public void RestartButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reload current scene
+    }
+
+    public void ExitButton()
+    {
+        SceneManager.LoadScene("MainMenu");  // Load main menu scene
+    }
+}
